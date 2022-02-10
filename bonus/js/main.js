@@ -48,6 +48,15 @@ const app = new Vue({
     },
     selectImg(indice){
       this.current = indice;
+    },
+    autoPlay(){
+      setInterval(function() {
+        app.current++
+      }, 3000);
     }
+  },
+  mounted(){
+    this.autoPlay()
   }
 })
+
