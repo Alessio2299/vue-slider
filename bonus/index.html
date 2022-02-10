@@ -10,7 +10,7 @@
   <body>
     <div class="container" id="app">
       <div class="items">
-          <div class="item" @mouseover="stopAutoPlay">
+          <div class="item" @mouseover="stopAutoPlay" @mouseout="autoPlay">
               <img :src="items[current].url" :alt="items[current].name">
               <div class="text">
                   <h3>{{items[current].name}}</h3>
@@ -18,7 +18,7 @@
               </div>
           </div> 
       </div>
-      <div class="thumbs" @mouseover="stopAutoPlay">
+      <div class="thumbs" @mouseover="stopAutoPlay" @mouseout="autoPlay">
           <div @click="selectImg(indice)" class="thumb" :class="current == indice ? 'active' : ''" v-for="(img, indice) in items">
               <img :src="img.url" :alt="img.name">
           </div> 
