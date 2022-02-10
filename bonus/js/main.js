@@ -50,16 +50,17 @@ const app = new Vue({
       this.current = indice;
     },
     autoPlay(){
-      setInterval(function() {
-        if(app.current == app.items.length - 1){
-          app.current = 0
+      play = setInterval(() => {
+        console.log(this.current)
+        if(this.current == this.items.length - 1){
+          this.current = 0
         } else {
-          app.current++
+          this.current++
         }
       }, 3000);
     },
     stopAutoPlay(){
-      clearInterval(app.autoPlay);
+      clearInterval(play);
     }
   },
   mounted(){
