@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carosello News</title>
+  <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="container" id="app">
+      <div class="items">
+          <div class="item">
+              <img :src="items[current].url" :alt="items[current].name">
+              <div class="text">
+                  <h3>{{items[current].name}}</h3>
+                  <p>{{items[current].text}}</p>
+              </div>
+          </div> 
+      </div>
+      <div class="thumbs">
+          <div @click="selectImg(indice)" class="thumb" :class="current == indice ? 'active' : ''" v-for="(img, indice) in items">
+              <img :src="img.url" :alt="img.name">
+          </div> 
+        <div class="prev" @click="previous"></div>
+        <div class="next" @click="next"></div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
