@@ -30,6 +30,7 @@ const app = new Vue({
       }
     ],
     current: 0,
+    play: null
   },
   methods:{
     previous(){
@@ -50,7 +51,7 @@ const app = new Vue({
       this.current = indice;
     },
     autoPlay(){
-      play = setInterval(() => {
+      this.play = setInterval(() => {
         console.log(this.current)
         if(this.current == this.items.length - 1){
           this.current = 0
@@ -60,7 +61,7 @@ const app = new Vue({
       }, 3000);
     },
     stopAutoPlay(){
-      clearInterval(play);
+      clearInterval(this.play);
     }
   },
   mounted(){
